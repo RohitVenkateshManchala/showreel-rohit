@@ -46,6 +46,13 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <Ionicons name="person" size={28} color={color} />,
         }}
       />
+      <Tabs.Screen
+        name="interview"
+        options={{
+          title: 'Interview',
+          tabBarIcon: ({ color }) => <Ionicons name="code-working" size={28} color={color} />,
+        }}
+      />
     </Tabs>
   );
 }
