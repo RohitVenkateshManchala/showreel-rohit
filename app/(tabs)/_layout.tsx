@@ -1,31 +1,23 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Tabs } from 'expo-router';
-import React from 'react';
-
-import { useClientOnlyValue } from '@/components/useClientOnlyValue';
-import { useColorScheme } from '@/components/useColorScheme';
-import Colors from '@/constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
-
-// You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
-}
+import { Tabs } from 'expo-router';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        // Disable the static render of the header on web
-        // to prevent a hydration error in React Navigation v6.
-        headerShown: useClientOnlyValue(false, true),
-      }}>
+        tabBarActiveTintColor: '#00ff9d',
+        tabBarInactiveTintColor: '#666',
+        headerShown: false,
+        tabBarStyle: {
+          backgroundColor: '#0a0a0a',
+          borderTopWidth: 1,
+          borderTopColor: '#333',
+        },
+        tabBarLabelStyle: {
+          fontFamily: 'Inter_700Bold',
+        },
+      }}
+    >
       <Tabs.Screen
         name="home"
         options={{
@@ -38,6 +30,20 @@ export default function TabLayout() {
         options={{
           title: 'Skills',
           tabBarIcon: ({ color }) => <Ionicons name="star" size={28} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="projects"
+        options={{
+          title: 'Projects',
+          tabBarIcon: ({ color }) => <Ionicons name="code-slash" size={28} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="contact"
+        options={{
+          title: 'Contact',
+          tabBarIcon: ({ color }) => <Ionicons name="person" size={28} color={color} />,
         }}
       />
     </Tabs>
