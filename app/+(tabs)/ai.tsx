@@ -15,7 +15,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-const GEMINI_API_KEY = "AIzaSyAeTDa5nERvkvkiNXWw1Jkq9sSU3pX-woo";
+const GEMINI_API_KEY = "AIzaSyAeTDa5nERvkvkiNXWw1Jkq9sSU3pX-wo9";
 
 type Message = {
     role: 'user' | 'model';
